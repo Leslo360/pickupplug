@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import "../styles/globals.css";
+import { AnimatePresence, motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -19,7 +21,28 @@ function MyApp({ Component, pageProps }) {
       });
     }
   }, []);
-  return <Component {...pageProps} />;
+  const router = useRouter();
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <motion.div
+        key={router.route}
+        initial="init"
+        animate="animate"
+        exit="exit"
+        variants={{
+          init: {
+            opacity: 0,
+          },
+          animate: {
+            opacity: 1,
+          },
+          exit: {},
+        }}
+      >
+        <Component {...pageProps} />
+      </motion.div>
+    </AnimatePresence>
+  );
 }
 
 export default MyApp;
