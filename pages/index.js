@@ -2,8 +2,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-
+import { IoIosRocket } from "react-icons/io";
+import Link from "next/link";
+import { useRouter } from "next/router";
 export default function Home() {
+  const router = useRouter();
+  const gotoPage = (pageName) => {
+    setTimeout(() => {
+      router.push(`/${pageName}`);
+    }, 800);
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -28,8 +36,12 @@ export default function Home() {
           </p>
           <div className="flex flex-col items-center">
             <input placeholder="Provide a secret phrase" className="p-2" />
-            <button className="p-2 bg-white text-black m-3 text-sm">
-              Login
+            <button
+              onClick={() => gotoPage("desk")}
+              className="p-2 bg-none focus:animate-ping border-white border text-white m-3 text-sm flex items-center justify-between"
+            >
+              <IoIosRocket color="white" className="mr-3 " size="20px" />
+              Take Flight
             </button>
           </div>
         </div>
