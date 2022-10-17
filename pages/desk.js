@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 import { IoIosRocket } from "react-icons/io";
@@ -21,10 +22,35 @@ function Desk() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <Image alt="logo" width={200} height={200} src="/2.svg" />
+    <div className="flex flex-col items-center content-center justify-between">
+      <motion.div
+        initial={{
+          opacity: 0,
+        }}
+        animate={{
+          opacity: 1,
+        }}
+        transition={{
+          duration: 2,
+          bounce: true,
+        }}
+      >
+        <Image alt="logo" width={200} height={200} src="/2.svg" />
+      </motion.div>
       {!hide && (
-        <div className="flex flex-col items-center mt-32">
+        <motion.div
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            duration: 1,
+            bounce: true,
+          }}
+          className="flex flex-col items-center mt-32"
+        >
           <h2>Welcome</h2>
           <p className="text-sm w-2/4 text-center">Are you 21 or older?</p>
           <div className="flex">
@@ -43,7 +69,7 @@ function Desk() {
               Yup!
             </button>
           </div>
-        </div>
+        </motion.div>
       )}
       {over21 && (
         <div className="flex flex-col items-center mt-32">
