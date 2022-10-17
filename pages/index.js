@@ -8,9 +8,7 @@ import { useRouter } from "next/router";
 export default function Home() {
   const router = useRouter();
   const gotoPage = (pageName) => {
-    setTimeout(() => {
-      router.push(`/${pageName}`);
-    }, 800);
+    router.push(`/${pageName}`);
   };
   return (
     <div className={styles.container}>
