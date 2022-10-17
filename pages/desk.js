@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 import { IoIosRocket } from "react-icons/io";
-
+import LogoSvg from "../images/2.svg";
 function Desk() {
   const [hide, setHide] = useState(false);
   const [over21, setOver21] = useState(false);
@@ -35,7 +35,7 @@ function Desk() {
           bounce: true,
         }}
       >
-        <Image alt="logo" width={200} height={200} src="/2.svg" />
+        <Image alt="logo" width={200} height={200} src={LogoSvg} />
       </motion.div>
       {!hide && (
         <motion.div

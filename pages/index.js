@@ -5,6 +5,8 @@ import styles from "../styles/Home.module.css";
 import { IoIosRocket } from "react-icons/io";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import LogoGif from "../images/logoDark.gif";
+
 export default function Home() {
   const router = useRouter();
   const gotoPage = (pageName) => {
@@ -23,7 +25,7 @@ export default function Home() {
           alt="Pickup Plug Logo Gif"
           width={200}
           height={200}
-          src={"/logoDark.gif"}
+          src={LogoGif}
         />
 
         <div className="text-center">

@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
   const router = useRouter();
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence exitBeforeEnter="true">
       <motion.div
         key={router.route}
         initial="init"
