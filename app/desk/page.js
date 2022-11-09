@@ -1,8 +1,12 @@
+"use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+
 import React, { useState } from "react";
 import { IoIosRocket } from "react-icons/io";
-import LogoSvg from "../images/2.svg";
+import Kickout from "../../components/Kickout";
+import Signup from "../../components/Signup";
+import LogoSvg from "../../images/2.svg";
 function Desk() {
   const [hide, setHide] = useState(false);
   const [over21, setOver21] = useState(false);
@@ -23,20 +27,6 @@ function Desk() {
 
   return (
     <div className="flex flex-col items-center content-center justify-between">
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 2,
-          bounce: true,
-        }}
-      >
-        <Image alt="logo" width={200} height={200} src={LogoSvg} />
-      </motion.div>
       {!hide && (
         <motion.div
           initial={{
@@ -71,21 +61,8 @@ function Desk() {
           </div>
         </motion.div>
       )}
-      {over21 && (
-        <div className="flex flex-col items-center mt-32">
-          <h2>Thought you were off the hook?</h2>
-          <p className="text-sm w-2/4 text-center">
-            Please provide your birth date:
-          </p>
-        </div>
-      )}
-      {invalid && (
-        <div className="flex flex-col items-center mt-32">
-          <h2 className="text-sm w-2/4 text-center">
-            Unfortunately these baked goodies are not for kiddies
-          </h2>
-        </div>
-      )}
+      {over21 && <Signup />}
+      {invalid && <Kickout />}
     </div>
   );
 }

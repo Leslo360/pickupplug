@@ -30,3 +30,7 @@ a {
     background: black;
   }
 }
+
+.MuiInputBase-input {
+  color: white !important
+}
