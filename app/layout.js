@@ -1,9 +1,6 @@
-/* eslint-disable @next/next/no-head-element */
-
-import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Logo from "../images/logo.gif";
 import "./globals.css";
-import LogoGif from "../images/2.svg";
 
 export default function RootLayout({ children }) {
   return (
@@ -17,10 +14,10 @@ export default function RootLayout({ children }) {
       <body>
         <div className="flex flex-col items-center content-center justify-between ">
           <Image
-            alt="Pickup Plug Logo Gif"
-            width={200}
-            height={200}
-            src={LogoGif}
+            alt="Pickup Plug"
+            width={250}
+            height={250}
+            src={Logo}
             priority="true"
             blurDataURL="data:..."
             placeholder="blur"
