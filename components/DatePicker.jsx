@@ -21,23 +21,14 @@ const DatePicker = () => {
   const classes = useStyles();
 
   return (
-    <form className={classes.container} noValidate>
+    <form className="flex justify-center items-center" noValidate>
       <TextField
         id="date"
         label=""
         onChange={(e) => setValue(e.target.value)}
         type="date"
       />
-      <Link href="desk/signup">
-        <button
-          className="p-2 bg-none focus:animate-ping
-         border-white border text-white m-3 text-sm 
-         flex items-center justify-between"
-        >
-          <IoIosRocket color="white" className="mr-3 " size="20px" />
-          Lets Go
-        </button>
-      </Link>
+      
     </form>
   );
 };
