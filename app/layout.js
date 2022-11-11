@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
             alt="Pickup Plug"
             width={250}
             height={250}
-            src="/logoDark.gif"
+            src="/2.svg"
             priority="true"
             blurDataURL="data:..."
             placeholder="blur"
