@@ -30,7 +30,7 @@ const Gas = async () => {
               blurDataURL="data:..."
               placeholder="blur"
             />
-            <h3 className="text-lg">{strain}</h3>
+            <h3 className="text-lg capitalize">{strain}</h3>
           </div>
         ))}
       </div>

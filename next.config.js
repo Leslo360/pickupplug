@@ -5,7 +5,9 @@ const nextConfig = {
     domains: ["cannabispharmuk.com", "highlifefarms.com"],
   },
   swcMinify: true,
-  experimental: { appDir: true },
+  experimental: {
+    appDir: true,
+  },
 };
 
 const withPWA = require("next-pwa");

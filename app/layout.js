@@ -1,6 +1,9 @@
 import Image from "next/image";
 // import Logo from "../public/2.svg";
 import "./globals.css";
+// import { League_Gothic } from "@next/font/google";
+
+// const league = League_Gothic({ variable: "--font-league" });
 
 export default function RootLayout({ children }) {
   return (
