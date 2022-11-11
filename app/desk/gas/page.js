@@ -17,7 +17,7 @@ const Gas = async () => {
   console.log(data);
   return (
     <div>
-      <h1 className="text-2xl">Gas List</h1>
+      <h1 className="text-2xl">Featured Gas</h1>
       <div className="flex flex-col">
         {data.map(({ id, strain, imageSrc }) => (
           <div key={id} className="p-2 m-3 bg-black border">
@@ -30,7 +30,6 @@ const Gas = async () => {
               blurDataURL="data:..."
               placeholder="blur"
             />
-            <h3 className="text-lg capitalize">{strain}</h3>
           </div>
         ))}
       </div>

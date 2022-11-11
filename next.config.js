@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["cannabispharmuk.com", "highlifefarms.com"],
+    domains: [
+      "cannabispharmuk.com",
+      "highlifefarms.com",
+      "lgengncznzfueucdjbmq.supabase.co",
+    ],
   },
   swcMinify: true,
   experimental: {
