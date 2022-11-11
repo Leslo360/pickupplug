@@ -17,21 +17,23 @@ const Gas = async () => {
   console.log(data);
   return (
     <div>
-      Gas List
-      {data.map(({ id, strain, imageSrc }) => (
-        <div key={id}>
-          <Image
-            src={imageSrc}
-            alt={strain}
-            width={150}
-            height={150}
-            priority="true"
-            blurDataURL="data:..."
-            placeholder="blur"
-          />
-          {strain}
-        </div>
-      ))}
+      <h1 className="text-2xl">Gas List</h1>
+      <div className="flex flex-col">
+        {data.map(({ id, strain, imageSrc }) => (
+          <div key={id} className="p-2 m-3 bg-black border">
+            <Image
+              src={imageSrc}
+              alt={strain}
+              width={250}
+              height={250}
+              priority="true"
+              blurDataURL="data:..."
+              placeholder="blur"
+            />
+            <h3 className="text-lg">{strain}</h3>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
