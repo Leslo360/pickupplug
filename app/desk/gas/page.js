@@ -18,7 +18,7 @@ const Gas = async () => {
   return (
     <div>
       <h1 className="text-2xl">Featured Gas</h1>
-      <div className="flex ">
+      <div className="flex flex-col">
         {data.map(({ id, strain, imageSrc }) => (
           <div key={id} className="m-3 shadow-xl shadow-purple-800">
             <Image
