@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "../images/logo.gif";
+// import Logo from "../public/2.svg";
 import "./globals.css";
 
 export default function RootLayout({ children }) {
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
             alt="Pickup Plug"
             width={250}
             height={250}
-            src={Logo}
+            src="/logoDark.gif"
             priority="true"
             blurDataURL="data:..."
             placeholder="blur"
