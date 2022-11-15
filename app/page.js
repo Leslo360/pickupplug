@@ -8,7 +8,7 @@ export default function Home() {
   const supabase = useSupabaseClient();
 
   return (
-    <div className="flex flex-col items-center content-center justify-between">
+    <div>
       {!session ? (
         <Auth
           supabaseClient={supabase}

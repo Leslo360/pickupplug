@@ -3,11 +3,16 @@ import Image from "next/image";
 import "./globals.css";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { SessionContextProvider } from "@supabase/auth-helpers-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 
 export default function RootLayout({ children }) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient());
+  const videoRef = useRef();
 
+  useEffect(() => {
+    videoRef.current.play();
+  }, []);
   return (
     <html>
       <head>
@@ -17,20 +22,31 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <div className="flex flex-col items-center content-center justify-between ">
-          <Image
-            alt="Pickup Plug"
-            width={250}
-            height={250}
-            src="/2.svg"
-            priority="true"
-            blurDataURL="data:..."
-            placeholder="blur"
-          />
+        <div className="flex flex-col items-center content-center justify-between z-[10]">
+          <Link href="/">
+            <Image
+              alt="Pickup Plug"
+              width={250}
+              height={250}
+              src="/2.svg"
+              priority="true"
+              blurDataURL="data:..."
+              placeholder="blur"
+            />
+          </Link>
           <SessionContextProvider
             supabaseClient={supabaseClient}
             // initialSession={pageProps.initialSession}
           >
+            <video
+              ref={videoRef}
+              controls={"false"}
+              loop
+              muted
+              className=" cover w-[100vw] h-full fixed z-[-1] "
+            >
+              <source src="/smoke.mp4" />
+            </video>
             {children}
           </SessionContextProvider>
         </div>
