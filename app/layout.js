@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
               controls={"false"}
               loop
               muted
-              className=" cover w-[100vw] h-full fixed z-[-1] "
+              className="object-cover  w-[100vw] h-[100vh] fixed z-[-1] "
             >
               <source src="/smoke.mp4" />
             </video>
