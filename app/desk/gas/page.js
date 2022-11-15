@@ -4,7 +4,7 @@ import Image from "next/image";
 export const getGas = async () => {
   const supaAdmin = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL || "",
-    process.env.SUPABASE_SERVICE_ROLE_KEY || ""
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
   );
 
   const { data } = await supaAdmin.from("Gas").select("*").order("id");

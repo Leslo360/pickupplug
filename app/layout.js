@@ -1,11 +1,13 @@
+"use client";
 import Image from "next/image";
-// import Logo from "../public/2.svg";
 import "./globals.css";
-// import { League_Gothic } from "@next/font/google";
-
-// const league = League_Gothic({ variable: "--font-league" });
+import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { SessionContextProvider } from "@supabase/auth-helpers-react";
+import { useState } from "react";
 
 export default function RootLayout({ children }) {
+  const [supabaseClient] = useState(() => createBrowserSupabaseClient());
+
   return (
     <html>
       <head>
@@ -25,7 +27,12 @@ export default function RootLayout({ children }) {
             blurDataURL="data:..."
             placeholder="blur"
           />
-          {children}
+          <SessionContextProvider
+            supabaseClient={supabaseClient}
+            // initialSession={pageProps.initialSession}
+          >
+            {children}
+          </SessionContextProvider>
         </div>
       </body>
     </html>
