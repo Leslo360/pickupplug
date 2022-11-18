@@ -116,7 +116,7 @@ export default function Account() {
             disabled
           />
 
-          {secret === "" && (
+          {!secret && (
             <button onClick={() => genSecret()} className="text-xs">
               Generate Secret
             </button>
