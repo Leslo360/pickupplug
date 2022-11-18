@@ -6,6 +6,7 @@ import {
   useSupabaseClient,
 } from "@supabase/auth-helpers-react";
 import randomWords from "random-words";
+import { useRouter } from "next/navigation";
 
 export default function Account() {
   const supabase = useSupabaseClient();
@@ -15,6 +16,7 @@ export default function Account() {
   const [secret, setSecret] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
   const session = useSession();
+  const router = useRouter();
 
   useEffect(() => {
     getProfile();
@@ -133,7 +135,10 @@ export default function Account() {
 
         <button
           className="flex items-center justify-between p-2 m-3 text-sm text-white transition ease-linear border border-white bg-none focus:bg-white focus:text-black"
-          onClick={() => supabase.auth.signOut()}
+          onClick={() => {
+            supabase.auth.signOut();
+            router.push("/");
+          }}
         >
           Sign Out
         </button>
