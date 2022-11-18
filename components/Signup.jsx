@@ -11,10 +11,8 @@ const Signup = () => {
         <p className="mr-2 text-sm">Your birthday please ? </p>
         <DatePicker />
       </div>
-      <Link href="/signup">
-        <button
-          className="flex items-center justify-between p-2 m-3 text-sm text-white border border-white bg-none focus:animate-ping"
-        >
+      <Link href="/profile">
+        <button className="flex items-center justify-between p-2 m-3 text-sm text-white border border-white bg-none focus:animate-ping">
           <IoIosRocket color="white" className="mr-3 " size="20px" />
           Lets Go
         </button>

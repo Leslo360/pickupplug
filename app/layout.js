@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
           >
             <video
               ref={videoRef}
-              controls={"false"}
+              controls={false}
               loop
               muted
               className="object-cover  w-[100vw] h-[100vh] fixed z-[-1] "

@@ -24,6 +24,7 @@
     "next-images": "^1.8.4",
     "next-pwa": "^5.6.0",
     "pocketbase": "^0.7.4",
+    "random-words": "^1.2.0",
     "react": "^18.2.0",
     "react-datetime-picker": "^4.0.1",
     "react-dom": "^18.2.0",
