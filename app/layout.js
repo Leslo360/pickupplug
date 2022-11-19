@@ -10,7 +10,6 @@ export default function RootLayout({ children }) {
   const [supabaseClient] = useState(() => createBrowserSupabaseClient());
   const videoRef = useRef();
 
-  console.log("Height: ", height, "Width: ", width);
   useEffect(() => {
     videoRef.current.play();
   }, []);
