@@ -6,10 +6,14 @@ export const getGas = async () => {
     process.env.NEXT_PUBLIC_SUPABASE_URL || "",
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
   );
-
-  const { data } = await supaAdmin.from("Gas").select("*").order("id");
-
-  return data;
+  try {
+    const { data } = await supaAdmin.from("Gas").select("*").order("id");
+    if (error) throw error;
+    return data;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
 
 const Gas = async () => {
@@ -19,25 +23,26 @@ const Gas = async () => {
     <div>
       <h1 className="text-2xl">Featured Gas</h1>
       <div className="flex flex-col">
-        {data.map(({ id, strain, imageSrc }) => (
-          <div key={id} className="m-3 ">
-            <Image
-              src={imageSrc}
-              alt={strain}
-              className=""
-              width={250}
-              height={250}
-              priority="true"
-              blurDataURL="data:..."
-              placeholder="blur"
-              style={{
-                width: "300px",
-                height: "300px",
-              }}
-            />
-            {strain !== "" && <h3 className="capitalize">{strain}</h3>}
-          </div>
-        ))}
+        {data &&
+          data.map(({ id, strain, imageSrc }) => (
+            <div key={id} className="m-3 ">
+              <Image
+                src={imageSrc}
+                alt={strain}
+                className=""
+                width={250}
+                height={250}
+                priority="true"
+                blurDataURL="data:..."
+                placeholder="blur"
+                style={{
+                  width: "300px",
+                  height: "300px",
+                }}
+              />
+              {strain !== "" && <h3 className="capitalize">{strain}</h3>}
+            </div>
+          ))}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ export default function Account() {
   const user = useUser();
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
+  const [fullName, setFullName] = useState(null);
   const [secret, setSecret] = useState(null);
   const [avatar_url, setAvatarUrl] = useState(null);
   const session = useSession();
@@ -33,7 +34,7 @@ export default function Account() {
 
       let { data, error, status } = await supabase
         .from("profiles")
-        .select(`username, secret, avatar_url`)
+        .select(`username, full_name, secret, avatar_url`)
         .eq("id", user.id)
         .single();
 
@@ -45,6 +46,7 @@ export default function Account() {
         setUsername(data.username);
         setSecret(data.secret);
         setAvatarUrl(data.avatar_url);
+        setFullName(data.full_name);
       }
     } catch (error) {
       console.log(error);
@@ -53,7 +55,7 @@ export default function Account() {
     }
   }
 
-  async function updateProfile({ username, secret, avatar_url }) {
+  async function updateProfile({ username, secret, full_name, avatar_url }) {
     try {
       setLoading(true);
 
@@ -61,6 +63,7 @@ export default function Account() {
         id: user.id,
         username,
         secret,
+        full_name,
         avatar_url,
         updated_at: new Date().toISOString(),
       };
@@ -88,6 +91,18 @@ export default function Account() {
           type="text"
           value={session?.user.email}
           disabled
+        />
+      </div>
+      <div className="flex justify-between mb-2">
+        <label className="mr-4" htmlFor="fullName">
+          Full Name
+        </label>
+        <input
+          className="w-[250px] p-2 mb-2 border"
+          id="FullName"
+          type="text"
+          value={fullName || ""}
+          onChange={(e) => setFullName(e.target.value)}
         />
       </div>
       <div className="flex justify-between mb-2">
@@ -127,7 +142,9 @@ export default function Account() {
       <div className="flex ">
         <button
           className="flex items-center justify-between p-2 m-3 text-sm text-white transition ease-linear border border-white bg-none focus:bg-white focus:text-black"
-          onClick={() => updateProfile({ username, secret, avatar_url })}
+          onClick={() =>
+            updateProfile({ username, secret, fullName, avatar_url })
+          }
           disabled={loading}
         >
           {loading ? "Loading ..." : "Update"}
