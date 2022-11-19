@@ -8,11 +8,9 @@ export const getGas = async () => {
   );
   try {
     const { data } = await supaAdmin.from("Gas").select("*").order("id");
-    if (error) throw error;
     return data;
   } catch (error) {
     console.log(error);
-    return [];
   }
 };
 
